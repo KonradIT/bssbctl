@@ -4,11 +4,11 @@ from datetime import datetime
 from prettytable import PrettyTable
 
 bssbAPI = lib.BeatSaberBrowserServerAPI()
-lobbies = bssbAPI.browse(offset=0)
+lobbies = bssbAPI.browse(offset=0, limit=10)
 if not lobbies.get("success"):
 	print(colored("Error in getting active lobbies: " + lobbies.get("error"), "red"))
 	exit()
-	
+
 x = PrettyTable()
 
 x.field_names = [
