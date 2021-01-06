@@ -33,6 +33,14 @@ class BeatSaberBrowserServerAPI:
 		self.session.headers["User-Agent"] = "ServerBrowser/1.0 (BeatSaber/1.13.0) (BSSBCTL/@KonradIT)"
 		self.session.headers["X-BSSB"] = "\u2714".encode("utf-8")
 		
+	def getServerTypes(self, s):
+		if "btogether." in s:
+			return "Beat Together"
+		if "steam.production" in s:
+  			return "Steam"
+		if "oculus.production" in s:
+  			return "Oculus"
+
 	def browse(self,**kwargs) -> dict:
 		
 		params = ()

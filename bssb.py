@@ -19,7 +19,11 @@ x.field_names = [
 	colored("Modded", "magenta", attrs=['bold']),
 	colored("Lobby State", "red", attrs=['bold']),
 	colored("Song Name", "magenta", attrs=['bold']),
-	colored("Difficulty", "red", attrs=['bold'])
+	colored("Difficulty", "red", attrs=['bold']),
+ 	colored("Platform", "magenta", attrs=['bold']),
+   	colored("Type", "red", attrs=['bold'])
+
+
 ]
 
 for index, t in enumerate(lobbies.get("data").get("Lobbies")):
@@ -31,7 +35,10 @@ for index, t in enumerate(lobbies.get("data").get("Lobbies")):
 			colored(t.get("isModded",""), "green"), 
 			colored(lib.LobbyStates[t.get("lobbyState","")], "cyan"),
 			colored(t.get("songName",""), "magenta"),
-			colored(lib.DifficultyLevels[t.get("difficulty","") or 5], "blue")
+			colored(lib.DifficultyLevels[t.get("difficulty","") or 5], "blue"),
+   			colored(t.get("platform",""), "magenta"),
+			colored(bssbAPI.getServerTypes(t.get("masterServerHost", "")), "magenta"),
+
 		])
 
 x.align = "l"
